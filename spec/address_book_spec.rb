@@ -188,4 +188,14 @@
        expect(entry).to be_nil
      end
   end
+
+  context "delete_everything" do
+    it "deletes everything" do
+      book.add_entry('Not Lovelace', '010.010.1010', 'not.king@lovelace.com')
+      book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+      expect(book.entries.size).to eq 2
+      book.delete_everything
+      expect(book.entries.size).to eq 0
+    end
+  end
 end
